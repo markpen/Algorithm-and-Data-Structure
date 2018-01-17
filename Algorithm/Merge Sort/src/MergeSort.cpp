@@ -32,3 +32,23 @@ void MergeSort::merge(std::vector<int>& a, std::vector<int>& b, int left, int mi
     }
 }
 
+void MergeSort::simpleMergeSort(std::vector < int >& nums) {
+    std::vector< int > temp = nums;
+    mergeSort(nums, 0, nums.size(), temp);
+}
+
+// [left, right)
+void MergeSort::mergeSort(std::vector< int >& nums, int left, int right, std::vector < int >& temp) {
+    if(right - left <= 1) return;
+
+    int mid = left + (right - left) / 2;
+    mergeSort(temp, left, mid, nums);
+    mergeSort(temp, mid, right, nums);
+
+    int i = left, j = mid;
+    for(int k = left; k < right; ++ k) {
+        if(i < mid && (j >= right || temp[i] < temp[j])) nums[k] = temp[i ++];
+        else nums[k] = temp[j ++];
+    }
+}
+
