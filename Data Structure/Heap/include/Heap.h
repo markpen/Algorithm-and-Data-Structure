@@ -1,27 +1,22 @@
 #ifndef HEAP_H
 #define HEAP_H
 
-#include <vector>
+#include<cassert>
 
 class Heap
 {
     public:
         Heap();
         virtual ~Heap();
-        int peek();
-        void push(int x);
-        void pop();
-        void createHeap(std::vector < int > nums);
-        int size();
-        bool isEmpty();
-
+        virtual int peek();
+        virtual void push(int x);
+        virtual void pop();
+        virtual int size();
+        virtual bool isEmpty();
     protected:
-    private:
-        std::vector < int > data;
-        void heapify(int pos);
-        void doubleSize();
+        void swap(int& a, int&b);
         int heapSize;
-
+    private:
 };
 
 #endif // HEAP_H
