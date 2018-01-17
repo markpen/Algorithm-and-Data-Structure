@@ -7,7 +7,6 @@ class CountOnesInBinaryNumber
     public:
         CountOnesInBinaryNumber();
         virtual ~CountOnesInBinaryNumber();
-
         int countOnes(int x);
     protected:
     private:
