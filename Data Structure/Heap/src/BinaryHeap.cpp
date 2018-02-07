@@ -1,3 +1,9 @@
+/*
+ref:
+https://www.cs.cmu.edu/~adamchik/15-121/lectures/Binary%20Heaps/heaps.html
+https://en.wikipedia.org/wiki/Binary_heap
+*/
+
 #include "BinaryHeap.h"
 
 BinaryHeap::BinaryHeap()
