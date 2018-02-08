@@ -57,7 +57,17 @@ bool BinaryHeap::isEmpty() {
 }
 
 void BinaryHeap::createHeap(std::vector< int >& nums) {
-    for(auto x : nums) push(x);
+    // O(nlgn)
+    //for(auto x : nums) push(x);
+
+    // O(n)
+    for(auto x : nums) {
+        data.push_back(x);
+        heapSize ++;
+    }
+    for(int i = data.size() / 2; i > 0; i --) {
+        heapify(i);
+    }
 }
 
 void BinaryHeap::doublSize() {
