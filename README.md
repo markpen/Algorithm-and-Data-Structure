@@ -2,11 +2,23 @@
 
 This is a recording for studying algorithm and data structure.
 
-Data Structure
-  List
-  Union-find
+## Index
+####Data Structure
+-List
+-Union-find
+-Heap
+-Trie
+-Hash Table
+-Segment Tree
+-Binary Index Tree
 
-Algorithm
-  Merge Sort
-  Bit Operation
-  Permutation and Combination
+####Algorithm
+-Merge Sort
+-Quick Sort
+-Quick Select
+-Search
+-Bit Operation
+-Permutation and Combination
+-KMP
+-Weighted Random Distribution
+
