@@ -10,6 +10,8 @@ class BinarySearch : public Search
         BinarySearch();
         virtual ~BinarySearch();
         bool binarySearch(std::vector<int>& nums, int k);
+        int firstIndex(std::vector<int>& nums, int k);
+        int lastIndex(std::vector<int>& nums, int k);
     protected:
     private:
 };
