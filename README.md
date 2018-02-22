@@ -8,7 +8,7 @@ This is a recording for studying algorithm and data structure.
 - Union-find
 - Heap
 - Trie
-- Hash Table
+- Hash Table(under building)
 - Segment Tree
 - Binary Index Tree
 
@@ -17,8 +17,9 @@ This is a recording for studying algorithm and data structure.
 - Quick Sort
 - Quick Select
 - Search
-- Bit Operation
+- Bit Operations
 - Permutation and Combination
 - KMP
 - Weighted Random Distribution
+- Cycle Detection
 
