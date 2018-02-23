@@ -4,6 +4,8 @@
 #include <map>
 #include "WeightedRandomExpanding.h"
 #include "WeightedRandomOrdered.h"
+#include "ReservoirSample.h"
+#include "WeightedRandomReservoirSample.h"
 
 using namespace std;
 
@@ -13,7 +15,7 @@ int main()
 
     // generate distribution;
     std::vector< pair < int, int > > items;
-    for(int i = 0; i < 10; ++ i) {
+    for(int i = 0; i < 20; ++ i) {
         items.push_back(make_pair(i, rand() % 10));
     }
 
@@ -33,6 +35,26 @@ int main()
     cout << endl;
 
     for(auto x : dis) cout << x.first << " : " << x.second << endl;
+
+    ReservoirSample rs;
+    rs.setSize(5);
+    vector<int> nums = {1,2 ,3, 4, 5, 6, 7, 8, 9};
+    for(auto x : nums) rs.getOne(x);
+
+    vector<int> ans = rs.getSample();
+    for(auto x : ans) cout << x << " ";
+    cout << endl;
+
+    // test for weight random using reservoir sample
+    cout << "Test for WeightedRandomReseroirSample:" << endl;
+    WeightedRandomReservoirSample wrrs;
+    wrrs.setSize(5);
+    for(auto x : items) {
+        wrrs.getOne(x.first, x.second);
+    }
+    vector<int> ansWrrs = wrrs.getSample();
+    for(auto x : ansWrrs) cout << x << " ";
+    cout << endl;
 
     return 0;
 }
