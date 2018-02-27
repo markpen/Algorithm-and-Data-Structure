@@ -22,4 +22,4 @@ This is a recording for studying algorithm and data structure.
 - KMP
 - Weighted Random Distribution
 - Cycle Detection
-
+- LZ77 Compression Algorithm
