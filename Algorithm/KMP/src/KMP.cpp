@@ -58,3 +58,18 @@ std::vector<int> KMP::patternTable(std::string w) {
 
     return t;
 }
+
+
+//reference: https://leetcode.com/problems/shortest-palindrome/solution/
+std::vector<int> KMP::patternTable2(std::string w) {
+    std::vector<int> table(w.length(), 0);
+    for(int i = 1; i < w.length(); ++  i) {
+        int t = table[i - 1];
+        while(t > 0 && w[i] != w[t]) {
+            t = table[t - 1];
+        }
+        if(w[i] == w[t]) t ++;
+        table[i] = t;
+    }
+    return table;
+}

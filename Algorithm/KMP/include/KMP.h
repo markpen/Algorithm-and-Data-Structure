@@ -15,6 +15,7 @@ class KMP
     protected:
     private:
         std::vector<int> patternTable(std::string w);
+        std::vector<int> patternTable2(std::string w);
 };
 
 // reference: https://en.wikipedia.org/wiki/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm
