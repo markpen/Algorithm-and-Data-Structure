@@ -51,7 +51,7 @@ void RedBlackTree::rotateRight(Node* n) {
     n->parent = oldLeft;
 }
 
-void RedBlackTree::insert(Node* root, Node* n) {
+void RedBlackTree::insertRecurse(Node* root, Node* n) {
     if(root != NULL && n->key < root->key) {
         if(root->left != LEAF) {
             insert(root->left, n);
@@ -74,6 +74,76 @@ void RedBlackTree::insert(Node* root, Node* n) {
     n->color = RED;
 }
 
-Node* RedBlackTree::insert(int x) {
+Node* RedBlackTree::insert(Node* root, Node* n) {
 
+    // insert new node into the current tree
+    insertRecurse(root, n);
+
+    //repair the tree in case any of the red-black propeties have been violated
+    insertRepairTree(n);
+
+    // find the new root to return
+    root = n;
+    while(getParent(root) != NULL) {
+        root = getParent(root);
+    }
+    return root;
+}
+
+void RedBlackTree::insertRepairTree(Node* n) {
+    if(parent(n) == NULL) {
+        insertCas1(n);
+    } else if(getParent(n)->color == BLACK) {
+        insertCase2(n);
+    } else if(getUncle(n)->color == RED) {
+        insertCase3(n);
+    } else {
+        insertCase4(n);
+    }
+}
+
+void RedBlackTree::insertCase1(Node* n) {
+    if(getParent(n) == NULL) {
+        n->color = BLACK;
+    }
+}
+
+void RedBlackTree::insertCase2(Node* n) {
+    return;
+}
+
+void RedBlackTree::insertCase3(Node* n) {
+    getParent(n)->color = BLACK;
+    getUncle(n)->color = BLACK;
+    getGrandparent(n)->color = RED;
+    insertRepairTree(getGrandparent(n));
+}
+
+void RedBlackTree::insertCase4(Node* n) {
+    Node* parent = getParent(n);
+    Node* grandparent = getGrandparent(n);
+
+    if(n == grandparent->left->right) {
+        rotateLeft(parent);
+        n = n->left;
+    } else if(n == grandparent->right->left) {
+        rotateRight(parent);
+        n = n->right;
+    }
+
+    insertCase4Step2(n);
+}
+
+void RedBlackTree::insertCase4Step2(Node* n) {
+    Node* parent = getParent(n);
+    Node* grandparent = getGrandparent(n);
+
+    if(n == parent->left) {
+        rotateRight(grandparent);
+    } else {
+        rotateRight(grandparent);
+    }
+
+    parent->color = BLACK;
+    grandparent->color = RED;
 }

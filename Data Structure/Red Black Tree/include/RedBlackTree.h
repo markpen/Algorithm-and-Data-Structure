@@ -40,9 +40,18 @@ class RedBlackTree
         Node* getGrandparent(Node* n);
         Node* getSibling(Node* n);
         Node* getUncle(Node* n);
+
         void rotateLeft(Node* n);
         void rotateRight(Node* n);
-        void insert(Node* root, Node* n);
+
+        void insertRecurse(Node* root, Node* n);
+        Node*insert(Node* root, Node* n);
+        void insertRepairTree(Node* n);
+        void insertCase1(Node* n);
+        void insertCase2(Node* n);
+        void insertCase3(Node* n);
+        void insertCase4(Node* n);
+        void insertCase4Step2(Node* n);
 
         Node* root;
 };

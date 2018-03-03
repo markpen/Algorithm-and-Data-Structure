@@ -11,6 +11,7 @@ This is a recording for studying algorithm and data structure.
 - Hash Table(under building)
 - Segment Tree
 - Binary Index Tree
+- Red Black Tree(removal under building)
 
 #### Algorithm
 - Merge Sort
