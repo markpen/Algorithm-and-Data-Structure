@@ -1,5 +1,7 @@
 #include "FisherYatesShuffle.h"
 
+// reference: https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle
+
 FisherYatesShuffle::FisherYatesShuffle()
 {
     //ctor
