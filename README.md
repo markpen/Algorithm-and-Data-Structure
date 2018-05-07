@@ -27,3 +27,4 @@ This is a recording for studying algorithm and data structure.
 - Fisher–Yates Shuffle
 - Random Generator
 - Aho Corasick Algorithm
+- Rabin–Karp Algorithm
